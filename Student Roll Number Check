@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+class Student 
+{
+    public:
+    int n, r; int* roll_no;   
+
+    void input() 
+    {
+        cout << "Enter number of students: ";
+        cin >> n;
+
+        roll_no = new int[n];  
+
+        cout << "Enter roll numbers: ";
+        for (int i = 0; i < n; i++) {
+            cin >> roll_no[i];
+        }
+    }
+
+    void display() {
+        cout << "Enter roll number to search: ";
+        cin >> r;
+
+        int found_index = -1;
+
+        for (int i = 0; i < n; i++) {
+            if (roll_no[i] == r) {
+                found_index = i;
+                break;
+            }
+        }
+
+        if (found_index != -1) {
+            cout << "Roll number found at index position: "<< found_index  << endl;
+        } else {
+            cout << "Roll number not found " << endl;
+        }
+    }
+};
+
+int main() {
+    Student s;
+    s.input();
+    s.display();
+
+    return 0;
+}
