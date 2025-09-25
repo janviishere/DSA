@@ -1,0 +1,43 @@
+#Analyzing Electricity Consumption Units: Count Even and Odd Meter Readings
+
+#include <iostream>
+using namespace std;
+
+class electricity
+{
+  private:
+    int N, even = 0, odd = 0;
+    int* arr;   
+    
+  public:
+    void input()
+    {
+        cout << "Enter the number of households: ";
+        cin >> N;
+        
+        arr = new int[N];  
+        
+        cout << "Enter electricity units consumed by each household:";
+        for (int i = 0; i < N; i++) {
+            cin >> arr[i];
+            if (arr[i] % 2 == 0)
+                even++;
+            else
+                odd++;
+        }
+    }
+
+    void display()
+    {
+        cout << "Total even consumption entries: " << even << endl;
+        cout << "Total odd consumption entries: " << odd << endl;
+    }
+};
+
+int main()
+{
+    electricity E;
+    E.input();
+    E.display();
+    return 0;
+}
