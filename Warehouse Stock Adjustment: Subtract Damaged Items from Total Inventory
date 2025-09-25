@@ -1,0 +1,41 @@
+#Warehouse Stock Adjustment: Subtract Damaged Items from Total Inventory
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    int row ,col;
+    cout<<"Enter number of rows and columns: "<<endl;
+    cin>>row>>col;
+    
+   int total[row][col],damage[row][col],Nondamage[row][col];
+   
+   cout<<"Enter Total Inventory Matrix: "<<endl;
+   for(int i=0;i<row;i++){
+       for(int j=0;j<col;j++){
+           cin>>total[i][j];
+       }
+   }
+   
+   cout<<"Enter Damaged Items Matrix: "<<endl;
+   for(int i=0;i<row;i++){
+       for(int j=0;j<col;j++){
+           cin>>damage[i][j];
+       }
+   }
+   
+   for(int i=0;i<row;i++){
+       for(int j=0;j<col;j++){
+           Nondamage[i][j]=total[i][j]-damage[i][j];
+       }
+   }
+   
+   cout<<"Remaining Stock Matrix (After Subtraction): "<<endl;
+   for(int i=0;i<row;i++){
+       for(int j=0;j<col;j++){
+           cout<<Nondamage[i][j]<<" ";
+       }
+       cout<<" "<<endl;
+   }
+   return 0;
+}
